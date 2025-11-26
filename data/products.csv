@@ -1,0 +1,201 @@
+id,name,sku,quantity,price,supplier_id,category,min_stock_level,created_at
+1,Sesame Noodles,GF-6445,193,24.98,353,clothing,95,04/03/2025
+2,Almond Joy Protein Bars,OR-1640,24,1.35,198,kitchen appliances,50,01/07/2025
+3,Electric Rice Cooker with Steamer,PB-4646,2,4.58,335,clothing,65,1/13/2025
+4,Travel Document Organizer,VP-5734,54,46.51,1,beauty products,54,9/20/2025
+5,Skincare Fridge,LX-7382,182,12.53,470,electronics,98,06/05/2025
+6,Vanilla Bean Greek Yogurt,IC-6676,25,43.73,359,kitchen appliances,88,11/17/2025
+7,Yoga Wheel,QF-9548,81,24.99,306,outdoor gear,13,02/10/2025
+8,Casual Sneakers,YC-1723,184,15.99,57,beauty products,15,04/08/2025
+9,Pesto Genovese,FW-4860,18,45.78,156,toys,30,6/24/2025
+10,Chipotle Black Bean Salad,FF-3410,175,3.38,458,kitchen appliances,25,02/05/2025
+11,Wireless Induction Charger,RB-2742,35,27.06,449,home decor,86,4/13/2025
+12,Mushrooms,FF-1227,6,27.9,428,home decor,33,3/13/2025
+13,Sweet Potato Mash,NB-1376,57,16.13,338,sports equipment,79,2/23/2025
+14,LED Canopy Lights,TE-4034,30,47.02,24,outdoor gear,4,11/29/2024
+15,Oatmeal Raisin Cookies,VW-6112,199,19.87,498,beauty products,50,10/09/2025
+16,Adjustable Resistance Bands,YW-3698,128,23.41,345,outdoor gear,10,03/12/2025
+17,Avocado Lime Dressing,RE-0778,127,40.22,378,outdoor gear,47,9/16/2025
+18,Wall Calendar,KB-4589,4,13.91,453,electronics,43,08/09/2025
+19,Lemon Herb Quinoa,JK-7310,134,6.72,29,clothing,2,11/17/2025
+20,First Aid Kit,NZ-3520,199,39.97,165,sports equipment,61,4/20/2025
+21,Cinnamon Sugar Mix,QB-0416,147,8.19,250,outdoor gear,4,1/26/2025
+22,Sun Protection Clothing,BI-8895,55,3.4,109,outdoor gear,14,01/10/2025
+23,Spicy Garlic Edamame,AI-0202,89,16.67,132,outdoor gear,26,10/15/2025
+24,Pressure Cooker,LM-1152,84,8.43,299,kitchen appliances,3,07/12/2025
+25,Coconut Curry Lentil Soup,VK-0348,29,20.84,306,sports equipment,80,1/15/2025
+26,Almond Joy Snack Bars,WF-8139,106,34.16,285,outdoor gear,78,8/19/2025
+27,Vegetarian Sausage Links,DE-7518,70,27.13,285,sports equipment,100,5/18/2025
+28,Drone,SF-4894,76,46.13,32,clothing,78,01/11/2025
+29,Ramen Noodles,XM-7973,50,49.59,382,sports equipment,64,11/09/2025
+30,Kids' Craft Supplies Set,JG-8998,59,1.28,188,toys,86,08/02/2025
+31,Graphic Sweatshirt,KL-4804,34,35.56,409,kitchen appliances,4,07/08/2025
+32,Camping Chair,CX-6714,155,26.47,164,home decor,30,5/29/2025
+33,Portable Air Purifier,GE-1372,163,28.48,136,clothing,36,5/19/2025
+34,Mashed Sweet Potatoes,NY-7920,32,43.28,5,home decor,88,11/27/2024
+35,Wireless Range Extender,BK-3368,170,37.18,65,kitchen appliances,88,4/20/2025
+36,Electric Butter Churn,TY-0029,198,24.07,442,clothing,87,7/20/2025
+37,Almond Flour Cookies,WN-2130,150,11.4,262,kitchen appliances,3,05/10/2025
+38,Pet First Aid Kit,XA-3220,129,5.08,350,outdoor gear,36,2/18/2025
+39,Portable Air Purifier,NZ-7713,111,36.55,192,home decor,6,6/21/2025
+40,Lemon Herb Grilled Chicken,QH-3923,130,14.97,394,clothing,37,10/12/2025
+41,Almond Butter,KB-4787,4,11.9,302,outdoor gear,23,7/21/2025
+42,Nutty Granola Clusters,VL-2839,40,7.28,108,sports equipment,40,9/17/2025
+43,Vegetable Stir Fry Mix,BI-8521,117,44.15,323,electronics,42,5/19/2025
+44,Nordic Berry Smoothie,LD-7864,177,9.82,245,sports equipment,1,03/11/2025
+45,Margherita Pizza,MK-7110,79,7.11,373,toys,48,6/18/2025
+46,Organic Cereal Bars,IF-8800,7,24.91,148,home decor,62,6/23/2025
+47,Savory Pumpkin Soup,PN-0422,141,27.95,180,toys,33,6/28/2025
+48,Pet Training Pads,UU-8106,130,44.84,24,toys,55,03/11/2025
+49,Baked Potato Chips,KN-1258,147,29.88,273,outdoor gear,65,03/11/2025
+50,Classic Pumps,EK-2405,76,43.62,8,beauty products,95,8/21/2025
+51,Peanut Butter Filled Pretzels,MS-0663,79,3.92,93,sports equipment,52,12/05/2024
+52,Fire Roasted Salsa,MM-9740,99,23.1,248,home decor,39,8/14/2025
+53,Kids' Crafting Station,JS-4627,63,17.61,188,clothing,89,04/03/2025
+54,Camping Chair,IK-3830,38,31.06,401,beauty products,82,12/26/2024
+55,Organic Whole Wheat Flour,JO-8583,68,35.79,368,kitchen appliances,69,8/31/2025
+56,Portable Speaker Stand,MD-7180,112,6.3,221,home decor,25,08/07/2025
+57,Pet Water Bottle,PM-6976,137,21.63,80,clothing,58,4/27/2025
+58,Pet Waterer with Filtration,FL-6770,196,49.39,379,clothing,94,1/19/2025
+59,Organic Cereal Bars,XR-6122,25,3.72,269,sports equipment,72,9/21/2025
+60,Pumpkin Ice Cream,BA-7302,154,3.37,221,beauty products,5,8/22/2025
+61,Dish Rack,IR-0136,154,40.5,20,sports equipment,27,08/04/2025
+62,Children's Educational Workbook,MI-1206,11,32.83,221,kitchen appliances,14,08/12/2025
+63,Vintage Button-Down Shirt,BJ-2014,53,12.38,166,clothing,32,6/19/2025
+64,Kids' Craft Supplies Set,DG-2214,77,45.36,152,home decor,43,1/31/2025
+65,Honey Sesame Cashews,ZF-0462,46,38.1,247,home decor,64,11/08/2025
+66,Buffalo Chicken Dip,HZ-2861,130,22.2,468,clothing,40,08/11/2025
+67,Spicy Thai Chili Sauce,HX-8334,124,46.29,358,beauty products,73,11/21/2025
+68,Italian Pasta,YG-5431,129,18.18,353,beauty products,85,07/04/2025
+69,Reclining Camping Chair,YP-7826,60,29.06,121,beauty products,39,02/03/2025
+70,Hiking Gaiters,IC-6653,37,7.91,166,outdoor gear,96,09/08/2025
+71,Car Windshield Sun Shade,WR-9110,26,36.42,230,clothing,66,9/20/2025
+72,Portable Grill Cover,WA-8231,22,30.42,206,clothing,48,10/02/2025
+73,Pasta (Fusilli),DW-6299,68,24.66,238,kitchen appliances,52,2/24/2025
+74,Pressure Washer Accessories Kit,XW-2742,141,33.78,237,outdoor gear,57,1/29/2025
+75,Wooden Children's Play Kitchen,EN-6981,28,43.86,101,clothing,99,10/03/2025
+76,LED Desk Lamp with USB Charging Port,YQ-2083,163,25.95,362,home decor,97,10/30/2025
+77,Lightweight Backpacking Tent,CX-6794,191,5.82,486,outdoor gear,27,8/30/2025
+78,Wireless Security System,MZ-3345,186,45.38,402,electronics,2,08/10/2025
+79,Herb Seasoned Croutons,UF-2050,159,30.75,256,outdoor gear,51,04/08/2025
+80,Fitness Tracker with Heart Rate Monitor,HA-3427,200,10.95,314,clothing,20,12/30/2024
+81,Dried Apricots,MA-0774,54,32.98,477,toys,35,6/13/2025
+82,LED Christmas Lights,ME-6712,114,30.37,429,sports equipment,16,06/09/2025
+83,Organic Quinoa Salad,OP-6327,36,37.81,161,sports equipment,97,4/16/2025
+84,Portable Campfire,OD-6773,116,32.35,236,outdoor gear,23,02/08/2025
+85,Peanut Butter Cookies,UB-8647,28,42.75,78,toys,16,1/17/2025
+86,Coconut Milk Yogurt,SK-8330,54,13.63,429,sports equipment,83,11/12/2025
+87,Electric Griddle with Removable Plates,LC-0801,194,41.63,98,home decor,70,03/10/2025
+88,Electric Opener for Jars and Bottles,RQ-2319,111,15.79,474,sports equipment,90,4/13/2025
+89,Golf Polo Shirt,AI-8945,193,5.37,76,outdoor gear,46,12/13/2024
+90,Tailgating Set,SM-7726,123,1.5,109,kitchen appliances,21,02/04/2025
+91,Faux Fur Coat,BV-3571,149,12.15,328,toys,72,04/08/2025
+92,Collapsible Pet Dog Bowl,ZC-3186,138,38.81,17,toys,82,6/26/2025
+93,Pressure Cooker,YS-7924,173,18.27,210,toys,58,03/10/2025
+94,Tropical Fruit Bowl,AJ-0809,136,48.84,476,electronics,93,2/15/2025
+95,Avocado Oil,NJ-7128,85,37.61,123,beauty products,26,10/06/2025
+96,Bamboo Cutting Board Set,EH-6305,4,5.38,308,electronics,79,03/06/2025
+97,Rechargeable Electric Screwdriver,SY-4274,71,11.09,478,toys,25,05/10/2025
+98,Avocados,QK-3843,192,25.79,159,home decor,42,06/02/2025
+99,Wireless Wi-Fi Extender,CJ-8963,141,28.09,165,electronics,81,7/16/2025
+100,Fitness Smartwatch,XW-6182,52,10.49,59,kitchen appliances,49,10/10/2025
+101,Spicy BBQ Sauce,UC-6609,172,31.14,398,electronics,98,01/10/2025
+102,Wireless Keyboard and Mouse Combo,CE-0058,140,24.06,239,clothing,76,7/29/2025
+103,Pistachios,HY-9348,60,48,188,sports equipment,6,05/10/2025
+104,Peach & Mango Salsa,XW-6934,64,25.37,319,toys,11,05/02/2025
+105,Chickpea Pancakes,GS-2352,143,10.09,104,electronics,54,03/04/2025
+106,Faux Fur Coat,JJ-4837,21,35.01,489,kitchen appliances,43,08/02/2025
+107,Fruit Medley Juice,NB-7333,58,48.79,311,toys,64,03/01/2025
+108,Nut Butter Cups,YK-1801,70,26.57,10,clothing,90,1/29/2025
+109,Garden Tool Belt,RC-2603,117,16.18,305,toys,56,7/30/2025
+110,Vegan Cheese,IZ-2717,34,6.83,51,clothing,74,01/12/2025
+111,Organic Black Bean Burger,KY-3444,52,7.11,445,electronics,87,05/05/2025
+112,Dog Collar,LP-2009,150,19.1,493,sports equipment,19,2/15/2025
+113,Vegan Mayonnaise,JD-9112,114,23.47,45,beauty products,93,08/02/2025
+114,Chili Con Carne Mix,YH-2732,182,40.75,371,electronics,54,12/17/2024
+115,Sports Water Bottle with Infuser,VB-0297,63,5.74,285,sports equipment,20,1/21/2025
+116,Ice Cream Maker,PA-4490,82,21.75,500,beauty products,59,6/14/2025
+117,Buffalo Stilton Cheese,CE-8463,37,5.52,71,electronics,15,7/17/2025
+118,Winter Insulated Jacket,ZX-4966,5,20.85,320,electronics,4,01/06/2025
+119,Caramel Apple Chips,HE-1442,95,44.54,89,beauty products,9,07/05/2025
+120,Fresh Lemons,JZ-1705,78,5.64,500,electronics,66,9/26/2025
+121,USB Flash Drive,YM-7422,140,13,370,kitchen appliances,90,11/08/2025
+122,Chopping Board,RW-7571,116,46.39,132,toys,83,4/26/2025
+123,Garlic Herb Seasoning,CY-2594,164,47.34,384,kitchen appliances,21,06/07/2025
+124,Cinnamon Roll Dough,HS-0905,70,27.97,370,sports equipment,15,7/25/2025
+125,Folding Table,ZL-5221,58,8.95,152,electronics,37,06/08/2025
+126,Black Bean Spaghetti,DQ-7292,55,31.6,183,kitchen appliances,7,10/25/2025
+127,Black Bean Soup,NT-5580,91,7.82,2,electronics,82,4/20/2025
+128,Energy Protein Bars,VD-9101,53,17.85,24,sports equipment,15,11/12/2025
+129,Non-Toxic Concrete Sealer,EI-9883,109,38.91,109,electronics,72,3/28/2025
+130,Peach Mango Smoothie,SC-4953,59,15.96,412,sports equipment,96,2/21/2025
+131,Smart Doorbell,EN-8209,195,45.11,149,clothing,90,4/18/2025
+132,Whole Wheat Pasta,TT-1096,108,26.25,332,clothing,39,1/13/2025
+133,Silicone Baking Mats,LN-9223,188,1.09,129,beauty products,97,04/03/2025
+134,Plaid Flannel Shirt,AA-2542,67,24.77,94,clothing,57,02/10/2025
+135,Digital Photo Frame,EB-1520,26,46.07,330,home decor,72,1/18/2025
+136,Skincare Fridge,MP-3402,109,3.98,406,kitchen appliances,75,5/18/2025
+137,Smoked Paprika,UF-8467,163,5.83,84,sports equipment,84,10/28/2025
+138,Curried Lentil Salad,NR-0206,65,47.75,496,sports equipment,10,05/10/2025
+139,Electric Heat Pad,RU-7082,61,14.61,314,clothing,65,5/30/2025
+140,Leather Crossbody Bag,WR-0417,144,16.08,387,toys,19,11/24/2024
+141,Spicy Tuna Salad,LG-4214,96,42.01,412,kitchen appliances,39,6/27/2025
+142,Animal Paw Print Soap Dispenser,BN-3786,77,14.22,140,electronics,25,10/12/2025
+143,Over-Ear Headphones,IO-1807,108,22.27,399,sports equipment,8,11/17/2025
+144,Crew Neck Sweater,LN-1337,150,4.54,324,outdoor gear,42,01/06/2025
+145,Coconut Water,FV-3000,192,2.45,1,kitchen appliances,86,6/13/2025
+146,Maple Breakfast Sausage,EG-6375,107,12.33,351,sports equipment,78,9/22/2025
+147,Vacuum Sealer Machine,JF-6612,95,41.08,160,home decor,69,1/15/2025
+148,Nordic Berry Smoothie,JG-6600,18,42.59,473,electronics,71,07/03/2025
+149,Crew Neck Sweater,WJ-1724,130,40.4,6,kitchen appliances,72,6/13/2025
+150,Spicy Vegetable Sushi Rolls,QA-4440,76,5.75,374,electronics,84,11/30/2024
+151,Savory Italian Herbs,QU-2077,20,26.58,252,electronics,79,3/28/2025
+152,Outdoor String Lights,VM-8350,138,43.85,280,kitchen appliances,76,05/10/2025
+153,Almond Crunch Granola Bars,PB-6085,54,26.13,403,outdoor gear,8,03/03/2025
+154,Under Desk Footrest,BK-6082,49,29.9,467,home decor,88,2/28/2025
+155,Grass Fed Beef Patties,ZA-3571,197,36.43,229,electronics,47,8/21/2025
+156,Organic Quinoa,JS-0156,156,25.29,226,electronics,41,9/30/2025
+157,Organic Coconut Flakes,GF-0549,108,29.25,60,outdoor gear,83,04/12/2025
+158,Chopping Board,FF-7866,96,46.82,308,electronics,60,8/13/2025
+159,Yoga Strap,VN-0676,38,34.79,29,beauty products,46,7/29/2025
+160,Beef Sirloin Steak,KS-8507,131,39.27,405,outdoor gear,64,10/22/2025
+161,Portable Refrigerator Freezer,OK-8496,4,6.05,337,beauty products,82,8/25/2025
+162,Wireless Security System,TO-9954,60,34.27,56,outdoor gear,92,01/06/2025
+163,Dark Chocolate Almond Butter Cups,DH-1535,11,38.21,261,home decor,30,9/13/2025
+164,Sour Cream,FF-6369,45,34.68,313,electronics,39,9/17/2025
+165,Almond Flour Brownies,CJ-9848,31,39.99,150,home decor,29,9/28/2025
+166,Compost Bin,NT-4128,29,44.99,302,home decor,80,10/12/2025
+167,Gluten-Free Pancake Mix,NV-8118,183,11.77,278,home decor,85,11/09/2025
+168,Gardening Fairy Figurines,EG-7760,31,12.76,192,home decor,73,9/23/2025
+169,Cinnamon Apple Sauce,UT-4785,37,3.81,216,kitchen appliances,59,4/14/2025
+170,Garlic Breadsticks,JC-1028,156,2.41,497,kitchen appliances,72,10/31/2025
+171,Car Trash Can,DU-4549,96,16.76,106,toys,44,05/02/2025
+172,Energy Bites,CJ-2580,158,42.44,217,electronics,65,4/25/2025
+173,LED Under Cabinet Lighting,XV-3670,128,9.67,155,outdoor gear,35,03/06/2025
+174,Sporty Slide Sandals,DC-7401,199,33.74,455,sports equipment,87,4/18/2025
+175,Free-Range Eggs,TQ-8794,26,1.87,338,sports equipment,71,4/14/2025
+176,Vegetable Medley,RU-3959,157,35.04,322,clothing,8,3/28/2025
+177,Jennifer's Amazing Lip Balm Kit,DR-9837,15,13.28,25,kitchen appliances,2,05/08/2025
+178,Microwave Popcorn Maker,GJ-8198,175,37.27,378,electronics,86,8/20/2025
+179,Key Finder,UB-4389,14,9.29,9,beauty products,5,10/07/2025
+180,Shoe Organizer,LB-2572,185,40.08,413,home decor,85,08/10/2025
+181,Sea Salt Caramel Brownie,CT-6514,90,41.08,154,kitchen appliances,12,2/22/2025
+182,Eco-Friendly Cleaning Cloths,MD-8532,179,21.39,271,sports equipment,53,11/20/2025
+183,Leek and Potato Soup,WO-1013,163,43.44,108,electronics,92,3/23/2025
+184,Bamboo Memory Foam Pillow,QU-3744,9,46.09,334,home decor,58,1/15/2025
+185,Sea Salt Caramel Popcorn,ZG-5537,112,12.94,156,outdoor gear,59,04/07/2025
+186,Organic Vanilla Bean Ice Cream,KD-8445,135,46,388,kitchen appliances,36,2/21/2025
+187,Luxe Velvet Blazer,TA-3410,54,21.43,330,home decor,70,8/31/2025
+188,Pet Hair Removal Brush,SL-4482,130,8.15,216,toys,90,03/09/2025
+189,Inspirational Wall Art,BQ-1139,46,18.12,278,toys,74,6/17/2025
+190,Peanut Butter Cookies,FE-6488,152,12.5,50,sports equipment,45,12/16/2024
+191,Smart Scale,WS-6785,8,16.54,284,sports equipment,37,07/03/2025
+192,Floral Wrap Top,OP-2115,145,42.84,366,kitchen appliances,78,11/30/2024
+193,Blue Denim Jeans,OA-7521,88,41.61,245,outdoor gear,91,11/24/2024
+194,Creamy Spinach Dip,PB-2186,93,44.76,219,toys,86,06/01/2025
+195,Mediterranean Couscous,IY-6465,146,13.41,292,outdoor gear,82,4/24/2025
+196,Grilled Vegetable Medley,BN-3969,22,25.01,417,kitchen appliances,77,3/22/2025
+197,Reusable Snack Bags,SQ-7583,132,27,434,kitchen appliances,80,08/04/2025
+198,Low-Fat Cottage Cheese,HO-6217,119,28.51,169,clothing,85,8/14/2025
+199,Tuna Fish (canned),CZ-1940,75,41.72,176,kitchen appliances,94,2/15/2025
+200,Wireless Charger,FR-1779,97,1.23,305,toys,49,11/20/2025
