@@ -60,7 +60,7 @@ ALTER TABLE products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE transactions ENABLE ROW LEVEL SECURITY;
 
--- Create policies to allow all operations for now (you can restrict these later)
+-- Create policies to allow all operations
 -- For suppliers
 CREATE POLICY "Allow all operations on suppliers" ON suppliers
     FOR ALL USING (true) WITH CHECK (true);
