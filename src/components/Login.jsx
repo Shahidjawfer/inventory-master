@@ -5,16 +5,37 @@ import logo from '../imgs/logo.png'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import { useAuth } from '../contexts/AuthContext'
 
 function Login() {
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
+  const { login } = useAuth()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: Implement actual authentication
-    navigate('/dashboard')
+    setErrorMessage('')
+    setIsLoading(true)
+
+    // Validate inputs
+    if (!email || !password) {
+      setErrorMessage('Please enter both email and password')
+      setIsLoading(false)
+      return
+    }
+
+    const { error } = await login(email, password)
+
+    if (error) {
+      setErrorMessage(error)
+      setIsLoading(false)
+    } else {
+      // Successfully logged in
+      navigate('/dashboard')
+    }
   }
 
   return (
@@ -37,20 +58,31 @@ function Login() {
         </motion.div>
         
         <form onSubmit={handleSubmit} className="space-y-6">
+          {errorMessage && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded"
+            >
+              {errorMessage}
+            </motion.div>
+          )}
+          
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             className="space-y-2"
           >
-            <Label htmlFor="username">Username</Label>
+            <Label htmlFor="email">Email</Label>
             <Input
-              id="username"
-              type="text"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full"
+              disabled={isLoading}
             />
           </motion.div>
           
@@ -68,6 +100,7 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full"
+              disabled={isLoading}
             />
           </motion.div>
           
@@ -76,8 +109,8 @@ function Login() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <Button type="submit" className="w-full" size="lg">
-              Login
+            <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+              {isLoading ? 'Logging in...' : 'Login'}
             </Button>
           </motion.div>
         </form>
