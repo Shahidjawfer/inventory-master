@@ -28,7 +28,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
     setLoading(true)
     setError(null)
     try {
-      // Build query with filters when viewing products
+      //creating a query variable to build the filter dynamically
       let tableData = []
       let tableError = null
 
@@ -49,7 +49,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
         tableData = res.data
         tableError = res.error
 
-        // client-side filter for stockStatus (because it requires column comparison)
+        // client-side filter for stockStatus
         if (!tableError && tableData && filters.stockStatus && filters.stockStatus !== 'all') {
           if (filters.stockStatus === 'low') {
             tableData = tableData.filter(p => Number(p.quantity) < Number(p.min_stock_level))

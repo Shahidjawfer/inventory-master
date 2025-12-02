@@ -33,7 +33,7 @@ function Login() {
       setErrorMessage(error)
       setIsLoading(false)
     } else {
-      // Successfully logged in
+      // On successful login, redirect to dashboard
       navigate('/dashboard')
     }
   }

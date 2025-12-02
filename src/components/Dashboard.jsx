@@ -21,7 +21,7 @@ function Dashboard() {
   const [filters, setFilters] = useState({
     category: '',
     supplierId: '',
-    stockStatus: 'all', // all | low | ok
+    stockStatus: 'all', //this could be either 'all', 'low', or 'ok'
     minPrice: '',
     maxPrice: '',
     q: ''

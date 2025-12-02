@@ -52,7 +52,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
         let dataToInsert = formData
         
         if (tableName === 'suppliers' || tableName === 'users') {
-          // These tables have auto-increment IDs, don't include id
+          // These tables have auto-increment IDs
           dataToInsert = dataWithoutId
         } else if (tableName === 'transactions') {
           // Transactions can have auto-increment if id is empty
@@ -60,7 +60,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             dataToInsert = dataWithoutId
           }
         } else if (tableName === 'products') {
-          // Products requires manual ID, keep it
+          // Products needs manual ID, so keep it
           dataToInsert = formData
         }
         
