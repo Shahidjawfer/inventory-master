@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Edit, Trash2, Loader2 } from 'lucide-react'
+import { Edit, Trash2, Loader2, AlertCircle } from 'lucide-react'
 import {
   Table,
   TableBody,
@@ -10,6 +10,10 @@ import {
   TableRow,
 } from './ui/table'
 import { Button } from './ui/button'
+
+function isLowStock(quantity, minStock) {
+  return quantity < minStock
+}
 
 function DataTable({ tableName, onEdit, supabase, refreshKey }) {
   const [data, setData] = useState([])
@@ -96,44 +100,57 @@ function DataTable({ tableName, onEdit, supabase, refreshKey }) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((product, index) => (
-              <TableRow
-                key={product.id}
-                className="animate-in fade-in slide-in-from-bottom-4"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <TableCell>{product.id}</TableCell>
-                <TableCell className="font-medium">{product.name}</TableCell>
-                <TableCell>{product.sku}</TableCell>
-                <TableCell>{product.quantity}</TableCell>
-                <TableCell>${product.price}</TableCell>
-                <TableCell>{product.supplier_id}</TableCell>
-                <TableCell>{product.category || '-'}</TableCell>
-                <TableCell>{product.min_stock_level || '-'}</TableCell>
-                <TableCell>
-                  {product.created_at ? new Date(product.created_at).toLocaleDateString() : '-'}
-                </TableCell>
-                <TableCell className="text-right">
-                  <div className="flex justify-end gap-2">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => onEdit(product)}
-                    >
-                      <Edit className="w-4 h-4" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => handleDelete(product.id)}
-                      className="text-destructive hover:text-destructive"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </TableCell>
-              </TableRow>
-            ))}
+            {data.map((product, index) => {
+              const lowStock = isLowStock(product.quantity, product.min_stock_level)
+              return (
+                <TableRow
+                  key={product.id}
+                  className={`animate-in fade-in slide-in-from-bottom-4 ${lowStock ? 'bg-red-50 hover:bg-red-100/50' : ''}`}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <TableCell>{product.id}</TableCell>
+                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell>{product.sku}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <span>{product.quantity}</span>
+                      {lowStock && (
+                        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-red-100 text-red-700 text-xs font-semibold">
+                          <AlertCircle className="w-3 h-3" />
+                          Low Stock
+                        </span>
+                      )}
+                    </div>
+                  </TableCell>
+                  <TableCell>${product.price}</TableCell>
+                  <TableCell>{product.supplier_id}</TableCell>
+                  <TableCell>{product.category || '-'}</TableCell>
+                  <TableCell>{product.min_stock_level || '-'}</TableCell>
+                  <TableCell>
+                    {product.created_at ? new Date(product.created_at).toLocaleDateString() : '-'}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <div className="flex justify-end gap-2">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => onEdit(product)}
+                      >
+                        <Edit className="w-4 h-4" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => handleDelete(product.id)}
+                        className="text-destructive hover:text-destructive"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              )
+            })}
           </TableBody>
         </>
       )
