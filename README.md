@@ -7,9 +7,9 @@ A modern inventory management system built with React, Tailwind CSS, shadcn/ui, 
 - 🎨 Beautiful, modern UI with Tailwind CSS and shadcn/ui components
 - ✨ Smooth animations powered by Framer Motion
 - 📊 Manage Products, Suppliers, Transactions, and Users
-- 🔍 Search functionality
+- 🔍 Search functionality (needs refining)
 - ➕ Add, Edit, and Delete records
-- 🔐 Login authentication (to be implemented)
+- 🔐 Login authentication
 - 📱 Responsive design
 
 ## Tech Stack
