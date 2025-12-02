@@ -15,22 +15,53 @@ function isLowStock(quantity, minStock) {
   return quantity < minStock
 }
 
-function DataTable({ tableName, onEdit, supabase, refreshKey }) {
+function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     loadData()
-  }, [tableName, supabase, refreshKey])
+  }, [tableName, supabase, refreshKey, JSON.stringify(filters)])
 
   const loadData = async () => {
     setLoading(true)
     setError(null)
     try {
-      const { data: tableData, error: tableError } = await supabase
-        .from(tableName)
-        .select('*')
+      // Build query with filters when viewing products
+      let tableData = []
+      let tableError = null
+
+      if (tableName === 'products') {
+        let query = supabase.from('products').select('*')
+
+        // apply server-side filters where possible
+        if (filters.category) query = query.eq('category', filters.category)
+        if (filters.supplierId) query = query.eq('supplier_id', Number(filters.supplierId))
+        if (filters.minPrice) query = query.gte('price', Number(filters.minPrice))
+        if (filters.maxPrice) query = query.lte('price', Number(filters.maxPrice))
+        if (filters.q) {
+          const q = filters.q.replace(/%/g, '')
+          query = query.or(`name.ilike.%${q}%,sku.ilike.%${q}%`)
+        }
+
+        const res = await query
+        tableData = res.data
+        tableError = res.error
+
+        // client-side filter for stockStatus (because it requires column comparison)
+        if (!tableError && tableData && filters.stockStatus && filters.stockStatus !== 'all') {
+          if (filters.stockStatus === 'low') {
+            tableData = tableData.filter(p => Number(p.quantity) < Number(p.min_stock_level))
+          } else if (filters.stockStatus === 'ok') {
+            tableData = tableData.filter(p => Number(p.quantity) >= Number(p.min_stock_level))
+          }
+        }
+      } else {
+        const res = await supabase.from(tableName).select('*')
+        tableData = res.data
+        tableError = res.error
+      }
 
       if (tableError) {
         setError(tableError.message)
