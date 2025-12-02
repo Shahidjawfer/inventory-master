@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import Settings from './components/Settings'
+import ReportsTransactions from './components/ReportsTransactions'
 import ProtectedRoute from './components/ProtectedRoute'
 import { SupabaseProvider } from './contexts/SupabaseContext'
 import { AuthProvider } from './contexts/AuthContext'
@@ -25,6 +26,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Settings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reports/transactions"
+            element={
+              <ProtectedRoute>
+                <ReportsTransactions />
               </ProtectedRoute>
             }
           />

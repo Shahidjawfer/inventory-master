@@ -17,7 +17,7 @@ function Sidebar({ selectedTable, onTableChange }) {
 
   const menuItems = [
     { path: '/dashboard', icon: Home, label: 'Home' },
-    { path: '/reports', icon: FileText, label: 'Reports' },
+    { path: '/reports/transactions', icon: FileText, label: 'Reports' },
     { path: '/settings', icon: Settings, label: 'Settings' },
   ]
 
