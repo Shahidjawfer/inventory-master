@@ -17,7 +17,6 @@ function isLowStock(quantity, minStock) {
 
 function formatDateDMY(value) {
   if (!value) return '-'
-  // Try standard Date parsing first
   const d = new Date(value)
   if (!isNaN(d)) {
     const dd = String(d.getDate()).padStart(2, '0')
