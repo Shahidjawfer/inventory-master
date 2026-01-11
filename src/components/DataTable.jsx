@@ -25,8 +25,7 @@ function formatDateDMY(value) {
     const yyyy = d.getFullYear()
     return `${dd}-${mm}-${yyyy}`
   }
-
-  // Fallback: try common delimited formats (YYYY-MM-DD, MM/DD/YYYY, DD/MM/YYYY)
+//Fallback: parse common date formats manually
   const parts = String(value).split(/[T\s]/)[0].split(/[-\/]/)
   if (parts.length === 3) {
     if (parts[0].length === 4) {
