@@ -15,6 +15,38 @@ function isLowStock(quantity, minStock) {
   return quantity < minStock
 }
 
+function formatDateDMY(value) {
+  if (!value) return '-'
+  // Try standard Date parsing first
+  const d = new Date(value)
+  if (!isNaN(d)) {
+    const dd = String(d.getDate()).padStart(2, '0')
+    const mm = String(d.getMonth() + 1).padStart(2, '0')
+    const yyyy = d.getFullYear()
+    return `${dd}-${mm}-${yyyy}`
+  }
+
+  // Fallback: try common delimited formats (YYYY-MM-DD, MM/DD/YYYY, DD/MM/YYYY)
+  const parts = String(value).split(/[T\s]/)[0].split(/[-\/]/)
+  if (parts.length === 3) {
+    if (parts[0].length === 4) {
+      // YYYY-MM-DD
+      const [y, m, d2] = parts
+      return `${String(d2).padStart(2, '0')}-${String(m).padStart(2, '0')}-${y}`
+    } else {
+      const [p1, p2, p3] = parts
+      // If first part > 12, assume DD/MM/YYYY
+      if (Number(p1) > 12) {
+        return `${String(p1).padStart(2, '0')}-${String(p2).padStart(2, '0')}-${String(p3)}`
+      }
+      // Otherwise assume MM/DD/YYYY
+      return `${String(p2).padStart(2, '0')}-${String(p1).padStart(2, '0')}-${String(p3)}`
+    }
+  }
+
+  return value
+}
+
 function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
@@ -158,7 +190,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
                   <TableCell>{product.category || '-'}</TableCell>
                   <TableCell>{product.min_stock_level || '-'}</TableCell>
                   <TableCell>
-                    {product.created_at ? new Date(product.created_at).toLocaleDateString() : '-'}
+                    {product.created_at ? formatDateDMY(product.created_at) : '-'}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
@@ -214,7 +246,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
                 <TableCell>{supplier.contact_number || '-'}</TableCell>
                 <TableCell>{supplier.email}</TableCell>
                 <TableCell>
-                  {supplier.created_at ? new Date(supplier.created_at).toLocaleDateString() : '-'}
+                  {supplier.created_at ? formatDateDMY(supplier.created_at) : '-'}
                 </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-2">
@@ -265,7 +297,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
                 <TableCell>{tx.product_id}</TableCell>
                 <TableCell>{tx.quantity_sold}</TableCell>
                 <TableCell>
-                  {tx.date ? new Date(tx.date).toLocaleDateString() : '-'}
+                  {tx.date ? formatDateDMY(tx.date) : '-'}
                 </TableCell>
                 <TableCell className="font-medium">${tx.total}</TableCell>
                 <TableCell>{tx.user_id}</TableCell>
@@ -322,7 +354,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
                   </span>
                 </TableCell>
                 <TableCell>
-                  {user.created_at ? new Date(user.created_at).toLocaleDateString() : '-'}
+                  {user.created_at ? formatDateDMY(user.created_at) : '-'}
                 </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-2">
