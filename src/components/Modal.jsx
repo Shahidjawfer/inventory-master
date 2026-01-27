@@ -20,7 +20,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
     if (record) {
       setFormData(record)
     } else {
-      // Initialize empty form data - don't include id for auto-increment tables
+      // Initialize empty form data- no need ID for auto-generations
       const initialData = {}
       // Only products table requires manual ID
       if (tableName === 'products') {
@@ -46,22 +46,23 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
     
     try {
       if (mode === 'add') {
-        // Remove id field for tables with auto-increment IDs
-        // Only products table requires manual ID
-        const { id, ...dataWithoutId } = formData
-        let dataToInsert = formData
+        let dataToInsert = { ...formData }
         
-        if (tableName === 'suppliers' || tableName === 'users') {
-          // These tables have auto-increment IDs
-          dataToInsert = dataWithoutId
-        } else if (tableName === 'transactions') {
-          // Transactions can have auto-increment if id is empty
-          if (!id) {
-            dataToInsert = dataWithoutId
+        if (tableName === 'products') {
+          // Products require manual ID - validate if its provided
+          if (!dataToInsert.id) {
+            alert('Product ID is required')
+            setLoading(false)
+            return
           }
-        } else if (tableName === 'products') {
-          // Products needs manual ID, so keep it
-          dataToInsert = formData
+        } else if (tableName === 'transactions') {
+          // Transactions also have ID, but optional (auto generation)
+          if (!dataToInsert.id || dataToInsert.id === '') {
+            delete dataToInsert.id
+          }
+        } else if (tableName === 'suppliers' || tableName === 'users') {
+          // These tables have auto-increment IDs - remove from insert
+          delete dataToInsert.id
         }
         
         const { error } = await supabase
@@ -74,9 +75,11 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
           return
         }
       } else {
+        // For updates, prepare data without the id field
+        const { id, ...updateData } = formData
         const { error } = await supabase
           .from(tableName)
-          .update(formData)
+          .update(updateData)
           .eq('id', record.id)
         
         if (error) {
@@ -103,14 +106,16 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
       return (
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
-            <Label htmlFor="id">ID</Label>
+            <Label htmlFor="id">ID {mode === 'add' && <span className="text-red-500">*</span>}</Label>
             <Input
               id="id"
               type="number"
               name="id"
+              placeholder={mode === 'add' ? 'Enter unique product ID' : ''}
               value={formData.id || ''}
               onChange={handleChange}
-              required
+              required={mode === 'add'}
+              disabled={mode === 'edit'}
             />
           </div>
           <div className="grid gap-2">
@@ -210,19 +215,19 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
         <div className="grid gap-4 py-4">
           {mode === 'add' && (
             <div className="grid gap-2">
-              <Label htmlFor="id">ID (Leave empty for auto-generation)</Label>
+              <Label htmlFor="id">ID (Optional - auto-generated if empty)</Label>
               <Input
                 id="id"
-                type="number"
+                type="text"
                 name="id"
                 value={formData.id || ''}
                 onChange={handleChange}
-                placeholder="Auto-generated if empty"
+                placeholder="Leave empty for auto-generation"
               />
             </div>
           )}
           <div className="grid gap-2">
-            <Label htmlFor="product_id">Product ID</Label>
+            <Label htmlFor="product_id">Product ID <span className="text-red-500">*</span></Label>
             <Input
               id="product_id"
               type="number"
@@ -233,7 +238,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="quantity_sold">Quantity Sold</Label>
+            <Label htmlFor="quantity_sold">Quantity Sold <span className="text-red-500">*</span></Label>
             <Input
               id="quantity_sold"
               type="number"
@@ -244,7 +249,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="date">Date</Label>
+            <Label htmlFor="date">Date <span className="text-red-500">*</span></Label>
             <Input
               id="date"
               type="date"
@@ -255,7 +260,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="total">Total</Label>
+            <Label htmlFor="total">Total <span className="text-red-500">*</span></Label>
             <Input
               id="total"
               type="number"
@@ -267,7 +272,7 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="user_id">User ID</Label>
+            <Label htmlFor="user_id">User ID <span className="text-red-500">*</span></Label>
             <Input
               id="user_id"
               type="number"
