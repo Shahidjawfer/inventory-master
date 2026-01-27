@@ -81,8 +81,8 @@ export default function ReportsTransactions() {
 
       if (fromDate) q = q.gte('date', fromDate)
       if (toDate) q = q.lte('date', toDate)
-      if (productId) q = q.eq('product_id', Number(productId))
-      if (userId) q = q.eq('user_id', Number(userId))
+      if (productId && productId !== '') q = q.eq('product_id', Number(productId))
+      if (userId && userId !== '') q = q.eq('user_id', Number(userId))
 
       const { data, error } = await q
       if (error) throw error
