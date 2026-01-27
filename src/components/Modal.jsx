@@ -56,8 +56,9 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             return
           }
         } else if (tableName === 'transactions') {
-          // Transactions also have ID, but optional (auto generation)
-          if (!dataToInsert.id || dataToInsert.id === '') {
+          // Transactions have optional ID (auto-generated via database trigger or defaults)
+          // Only include id if it has a value; omit it for auto-generation
+          if (dataToInsert.id === '' || dataToInsert.id === null || dataToInsert.id === undefined) {
             delete dataToInsert.id
           }
         } else if (tableName === 'suppliers' || tableName === 'users') {
@@ -74,9 +75,79 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
           setLoading(false)
           return
         }
+
+        // If transaction was added successfully, update the product quantity
+        if (tableName === 'transactions') {
+          const productId = dataToInsert.product_id
+          const quantitySold = dataToInsert.quantity_sold
+
+          // Fetch current product quantity
+          const { data: productData, error: fetchError } = await supabase
+            .from('products')
+            .select('quantity')
+            .eq('id', productId)
+            .single()
+
+          if (fetchError) {
+            alert(`Error fetching product: ${fetchError.message}`)
+            setLoading(false)
+            return
+          }
+
+          const newQuantity = productData.quantity - quantitySold
+
+          // Update product quantity
+          const { error: updateError } = await supabase
+            .from('products')
+            .update({ quantity: newQuantity })
+            .eq('id', productId)
+
+          if (updateError) {
+            alert(`Error updating product quantity: ${updateError.message}`)
+            setLoading(false)
+            return
+          }
+        }
       } else {
         // For updates, prepare data without the id field
         const { id, ...updateData } = formData
+        
+        // If updating a transaction, also update product quantity
+        if (tableName === 'transactions' && record) {
+          const oldQuantity = record.quantity_sold
+          const newQuantity = updateData.quantity_sold
+          const quantityDifference = newQuantity - oldQuantity
+
+          if (quantityDifference !== 0) {
+            // Fetch current product quantity
+            const { data: productData, error: fetchError } = await supabase
+              .from('products')
+              .select('quantity')
+              .eq('id', updateData.product_id || record.product_id)
+              .single()
+
+            if (fetchError) {
+              alert(`Error fetching product: ${fetchError.message}`)
+              setLoading(false)
+              return
+            }
+
+            const updatedProductQuantity = productData.quantity - quantityDifference
+
+            // Update product quantity
+            const { error: prodUpdateError } = await supabase
+              .from('products')
+              .update({ quantity: updatedProductQuantity })
+              .eq('id', updateData.product_id || record.product_id)
+
+            if (prodUpdateError) {
+              alert(`Error updating product quantity: ${prodUpdateError.message}`)
+              setLoading(false)
+              return
+            }
+          }
+        }
+
         const { error } = await supabase
           .from(tableName)
           .update(updateData)
