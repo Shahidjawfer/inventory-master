@@ -56,10 +56,23 @@ function Modal({ mode, tableName, record, onClose, supabase, onSuccess, open }) 
             return
           }
         } else if (tableName === 'transactions') {
-          // Transactions have optional ID (auto-generated via database trigger or defaults)
-          // Only include id if it has a value; omit it for auto-generation
-          if (dataToInsert.id === '' || dataToInsert.id === null || dataToInsert.id === undefined) {
-            delete dataToInsert.id
+          // Transactions have optional ID; auto-generate if not provided
+          if (!dataToInsert.id || dataToInsert.id === '') {
+            // Sequential ID generation
+            const { data: transactions, error: fetchError } = await supabase
+              .from('transactions')
+              .select('id')
+              .order('id', { ascending: false })
+              .limit(1)
+
+            let nextId = 1
+            if (!fetchError && transactions && transactions.length > 0) {
+              const lastId = parseInt(transactions[0].id)
+              if (!isNaN(lastId)) {
+                nextId = lastId + 1
+              }
+            }
+            dataToInsert.id = nextId.toString()
           }
         } else if (tableName === 'suppliers' || tableName === 'users') {
           // These tables have auto-increment IDs - remove from insert
