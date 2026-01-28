@@ -65,7 +65,7 @@ function DataTable({ tableName, onEdit, supabase, refreshKey, filters = {} }) {
       if (tableName === 'products') {
         let query = supabase.from('products').select('*')
 
-        // apply server-side filters where possible
+        // apply server-side filters
         if (filters.category) query = query.eq('category', filters.category)
         if (filters.supplierId) query = query.eq('supplier_id', Number(filters.supplierId))
         if (filters.minPrice) query = query.gte('price', Number(filters.minPrice))
